@@ -12,6 +12,16 @@ public class Utils {
 		return min;
 	}
 	
+	public static int maxValue(int val, int... val2) {
+		int max = val;
+		for(int v : val2) {
+			if(v > max) {
+				max = v;
+			}
+		}
+		return max;
+	}
+	
 	public static int factorial(int n) {
 		int result = 1;
 		while(n > 0) {

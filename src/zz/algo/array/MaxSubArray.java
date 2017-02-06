@@ -77,4 +77,32 @@ public class MaxSubArray {
 		}
 		return maxSum;
 	}
+	
+	public static int[] maxSubArray2(int[] arr) {
+		int maxSum = 0;
+		int maxStart = 0;
+		int maxEnd = 0;
+		
+		int sum = 0;
+		int start = 0;
+
+		for(int i = 0; i < arr.length; i++) {
+			sum += arr[i];
+			if(sum > maxSum) {
+				maxSum = sum;
+				maxStart = start;
+				maxEnd = i + 1;
+			}
+			else if(sum < 0) {
+				sum = 0;
+				start = i + 1;
+			}
+		}
+		if (maxEnd > maxStart) {
+			return Arrays.copyOfRange(arr, maxStart, maxEnd);
+		}
+		else {
+			return null;
+		}
+	}
 }
